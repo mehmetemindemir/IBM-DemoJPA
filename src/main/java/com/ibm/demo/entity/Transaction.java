@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 @Entity(name = "transaction")
 public class Transaction implements Serializable {
+
     private String accountNumber;
     private String transactionTs;
     private String type;

@@ -1,12 +1,17 @@
 package com.ibm.demo.entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.List;
 
 public class ResponseData<T> implements Serializable {
     private static final long serialVersionUID = 8805336031799121824L;
+    @ApiModelProperty(notes = "Request status code",name = "statusCode",value = "200,401,403...")
     private String statusCode;
+    @ApiModelProperty(notes = "Request status message",name = "statusMessage",value = "OK,UNAUTHORIZED,FORBIDDEN...")
     private String statusMessage;
+    @ApiModelProperty(notes = "Data",name = "data",value = "generic class")
     private T data;
     private int totalPage;
     private int currentPage;
