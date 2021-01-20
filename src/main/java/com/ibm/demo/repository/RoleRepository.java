@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface RoleRepository extends JpaRepository<Role,Long> {
 
-    @Query("select r.role from role_ibm r where r.userName=:userName")
+    @Query("select r from role_ibm r where r.userName=:userName")
     List<Role> getUserRoles(@Param("userName") String userName);
 }

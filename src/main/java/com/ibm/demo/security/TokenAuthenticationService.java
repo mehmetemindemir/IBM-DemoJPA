@@ -7,6 +7,7 @@ import com.ibm.demo.util.Helper;
 import com.jwtutil.JWTUtil;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -82,7 +83,7 @@ public class TokenAuthenticationService {
 					roller.add(role);
 				}
 			}
-			return user != null ? new UsernamePasswordAuthenticationToken(user, roller) : null;
+			return user != null ? new UsernamePasswordAuthenticationToken(user,null, null) : null;
 		}else{
 			System.out.println("Token is null");
 			return null;

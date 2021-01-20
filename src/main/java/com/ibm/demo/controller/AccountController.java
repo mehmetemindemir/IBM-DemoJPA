@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -52,6 +53,7 @@ public class AccountController {
     })
     @PostMapping(value = "transaction/list")
     @ResponseBody
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseData<List<Transaction>> getTransactions(@RequestBody TransactionCritea critea){
         return transactionService.getTransactionList(critea);
     }
