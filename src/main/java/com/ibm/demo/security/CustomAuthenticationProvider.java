@@ -30,9 +30,8 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String name = authentication.getName();
         String password = authentication.getCredentials().toString();
         User user=userService.getUser(name,password);
-        List<Role> roles=new ArrayList<>();
 
-        if (null!=user && null!=roles) {
+        if (null!=user) {
             return new UsernamePasswordAuthenticationToken(user,null, null);
         } else {
             throw new BadCredentialsException("");

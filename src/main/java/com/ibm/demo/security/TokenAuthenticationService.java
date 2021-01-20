@@ -71,18 +71,7 @@ public class TokenAuthenticationService {
 		if (token != null) {
 			token = token.replace(TOKEN_PREFIX,"").trim();
 			String user         = JWTUtil.getDataFromKey(token,"username");
-			String strRoller    = JWTUtil.getDataFromKey(token,"roles");
 
-			List<Role> roller = new ArrayList<>();
-			Role role=null;
-			if(strRoller!=null) {
-				String[] arryRol = strRoller.split(",");
-				for(String strRol:arryRol){
-					role=new Role();
-					role.setRole(strRol.trim().toUpperCase());
-					roller.add(role);
-				}
-			}
 			return user != null ? new UsernamePasswordAuthenticationToken(user,null, null) : null;
 		}else{
 			System.out.println("Token is null");
