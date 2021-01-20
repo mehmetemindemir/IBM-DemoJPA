@@ -45,7 +45,7 @@ public class AccountController {
     }
     @ApiOperation(value = "Fetch an account Transaction",response = ResponseData.class)
     @ApiResponses(value ={
-            @ApiResponse(code = 200,message = "SUCCESS",response = ResponseData.),
+            @ApiResponse(code = 200,message = "SUCCESS",response = ResponseData.class),
             @ApiResponse(code = 401,message = "UNAUTHORIZED",response = ResponseData.class),
             @ApiResponse(code = 403,message = "FORBIDDEN",response = ResponseData.class),
             @ApiResponse(code = 404,message = "NOT FOUND",response = ResponseData.class),
